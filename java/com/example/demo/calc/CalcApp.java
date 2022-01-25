@@ -21,7 +21,21 @@ public class CalcApp {
         this.num1 = num1;
         this.num2 = num2;
         this.opcode = opcode;
+        int res = 0;
 
-        return String.format("%d %s %d = %d",num1,opcode,num2,num1+num2);
+        if (this.opcode.equals("+")){
+            res = num1+num2;
+        }
+        else if(this.opcode.equals("-")){
+            res = num1-num2;
+        }
+        else if(this.opcode.equals("*")){
+            res = num1*num2;
+        }
+        else if(this.opcode.equals("/")){
+            res = num1/num2;
+        }
+
+        return String.format("%d %s %d = %d",num1,opcode,num2,res);
     }
 }
