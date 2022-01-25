@@ -1,11 +1,19 @@
 package com.example.demo.kakao;
 
+/**
+ * packageName   :   com.example.demo.kakao
+ * fileName      :   KakaoDemo.java
+ * author        :   JeongMyeongHong
+ * date          :   2022-01-24
+ * desc          :  KakaoApp을 실행하는 컨트롤러
+ * ============================================
+ * DATE             AUTHOR              NOTE
+ * ============================================
+ * 2022-01-24      JeongMyoengHong     최초 생성
+ */
+
 import java.util.Scanner;
 
-/*
- *전화번호와 메시지를 받아서 전송하는 어플을 만드시오
- * String telno, String message
- * */
 public class KakaoDemo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

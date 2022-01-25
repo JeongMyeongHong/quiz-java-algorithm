@@ -1,5 +1,17 @@
 package com.example.demo.login;
 
+/**
+ * packageName   :   com.example.demo.login
+ * fileName      :   LoginApp.java
+ * author        :   JeongMyeongHong
+ * date          :   2022-01-24
+ * desc          :  ID, PW, Name을 받아서 출력하는 앱.
+ * ============================================
+ * DATE             AUTHOR              NOTE
+ * ============================================
+ * 2022-01-24      JeongMyoengHong     최초 생성
+ */
+
 public class LoginApp {
     static String LOGIN_TITLE = "----LoginApp----";
     String id;
