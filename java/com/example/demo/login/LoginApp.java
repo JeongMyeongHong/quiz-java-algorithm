@@ -13,10 +13,10 @@ package com.example.demo.login;
  */
 
 public class LoginApp {
-    static String LOGIN_TITLE = "----LoginApp----";
-    String id;
-    String pw;
-    String name;
+    public static String LOGIN_TITLE = "----LoginApp----";
+    private String id;
+    private String pw;
+    private String name;
 
     public String login(
             String id, String pw, String name){
