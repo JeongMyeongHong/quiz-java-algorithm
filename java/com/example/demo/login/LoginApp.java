@@ -12,27 +12,32 @@ package com.example.demo.login;
  * DATE             AUTHOR              NOTE
  * ============================================
  * 2022-01-24      JeongMyoengHong     최초 생성
+ * 2022-01-26      JeongMyoengHong      if 추가
  */
 
 public class LoginApp {
     public static String LOGIN_TITLE = "----LoginApp----";
-    private static String PASSWORD = "abc";
+
     private String id;
     private String pw;
     private String name;
+    static String PASSWORD = "abc";
 
     public String login(
             String id, String pw, String name){
-        this.id = id;
-        this.pw = pw;
-        this.name = name;
-        String res = "";
 
-        if (this.pw.equals(PASSWORD)) {
+        /*if (pw.equals(PASSWORD)) {
             res = String.format("%s 님의 비번 %s가 맞습니다. 로그인 성공",this.name, this.pw);
         }else{
             res = String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패",this.id, this.pw);
-        }
-        return res;
+        }*/
+
+        /*switch (pw) {
+            case PASSWORD : res = String.format("%s 님의 비번 %s가 맞습니다. 로그인 성공",this.name, this.pw); break;
+            default : res = String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패",this.id, this.pw);
+        }*/
+        return (pw.equals(PASSWORD))? String.format("%s 님의 비번 %s가 맞습니다. 로그인 성공",name, pw)
+                : String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패",id, pw);
+
     }
 }

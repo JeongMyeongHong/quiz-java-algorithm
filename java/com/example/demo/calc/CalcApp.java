@@ -23,7 +23,7 @@ public class CalcApp {
         this.opcode = opcode;
         int res = 0;
 
-        if(opcode.equals("+")){
+        /*if(opcode.equals("+")){
             res = this.num1 + this.num2;
         }else if(opcode.equals("-")){
             res = this.num1 - this.num2;
@@ -33,8 +33,15 @@ public class CalcApp {
             res = this.num1 / this.num2;
         }else{
 
+        }*/
+
+        switch (opcode) {
+            case "+" : res = num1 + num2; break;
+            case "-" : res = num1 - num2; break;
+            case "*" : res = num1 * num2; break;
+            case "/" : res = num1 / num2; break;
+
         }
-        //switch (){}
         String result = String.format("%d %s %d = %d",num1,opcode,num2,res);
         return result;
     }
