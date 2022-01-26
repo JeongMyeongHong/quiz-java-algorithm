@@ -23,19 +23,19 @@ public class CalcApp {
         this.opcode = opcode;
         int res = 0;
 
-        if (this.opcode.equals("+")){
-            res = num1+num2;
-        }
-        else if(this.opcode.equals("-")){
-            res = num1-num2;
-        }
-        else if(this.opcode.equals("*")){
-            res = num1*num2;
-        }
-        else if(this.opcode.equals("/")){
-            res = num1/num2;
-        }
+        if(opcode.equals("+")){
+            res = this.num1 + this.num2;
+        }else if(opcode.equals("-")){
+            res = this.num1 - this.num2;
+        }else if(opcode.equals("*")){
+            res = this.num1 * this.num2;
+        }else if(opcode.equals("/")){
+            res = this.num1 / this.num2;
+        }else{
 
-        return String.format("%d %s %d = %d",num1,opcode,num2,res);
+        }
+        //switch (){}
+        String result = String.format("%d %s %d = %d",num1,opcode,num2,res);
+        return result;
     }
 }
