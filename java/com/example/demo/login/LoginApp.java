@@ -1,5 +1,7 @@
 package com.example.demo.login;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * packageName   :   com.example.demo.login
  * fileName      :   LoginApp.java
@@ -36,8 +38,7 @@ public class LoginApp {
             case PASSWORD : res = String.format("%s 님의 비번 %s가 맞습니다. 로그인 성공",this.name, this.pw); break;
             default : res = String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패",this.id, this.pw);
         }*/
-        return (pw.equals(PASSWORD))? String.format("%s 님의 비번 %s가 맞습니다. 로그인 성공",name, pw)
-                : String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패",id, pw);
-
+        return pw.equals(PASSWORD) ? String.format("%s님의 비번 %s가 맞습니다. 로그인 성공",name, pw)
+                : String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패",id,pw);
     }
 }
