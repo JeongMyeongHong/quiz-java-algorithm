@@ -21,14 +21,14 @@ public class BmiApp {
     private double weight;
     double res;
 
-    public double bmi(double height, double weight){
+    public double getBmi(double height, double weight){
         this.height = height;
         this.weight = weight;
         res = weight/(height*height)*10000;
         return res;
     }
 
-    public String result(){
+    public String res(){
         String result;
         if (this.res<=18.5){
             result = "저체중입니다.";

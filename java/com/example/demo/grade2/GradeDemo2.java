@@ -16,23 +16,10 @@ import java.util.Scanner;
  * 2022-01-26      JeongMyoengHong     최초 생성
  */
 public class GradeDemo2 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public String execute(String name, int score_kr, int score_en, int score_math) {
         GradeApp2 gradeApp2 = new GradeApp2();
-
-        System.out.println(GradeApp2.GRADE_TITLE + " 앱 입니다.");
-        System.out.println("이름을 입력해주세요.");
-        String name = scanner.next();
-        System.out.println("국어점수를 입력해주세요.");
-        int score_kr = scanner.nextInt();
-        System.out.println("영어점수를 입력해주세요.");
-        int score_en = scanner.nextInt();
-        System.out.println("수학점수를 입력해주세요.");
-        int score_math = scanner.nextInt();
-
         gradeApp2.setgrade(name, score_kr, score_en, score_math);
-
-        String res = String.format(" * ########## %s ########\n" +
+        return String.format(" * ########## %s ########\n" +
                         " * 이름: %s\n" +
                         " * > 국어: %d점 \n" +
                         " * > 영어: %d점 \n" +
@@ -42,6 +29,5 @@ public class GradeDemo2 {
                         " * 합격여부: %s\n" +
                         " * #######################",
                 GradeApp2.GRADE_TITLE, gradeApp2.getName(), gradeApp2.getscore_kr(), gradeApp2.getscore_en(), gradeApp2.getscore_math(), gradeApp2.gettotal(), gradeApp2.getavg(), gradeApp2.getgrade());
-        System.out.println(res);
     }
 }

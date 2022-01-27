@@ -11,8 +11,8 @@ package com.example.demo.calc;
  * ============================================
  * 2022-01-24      JeongMyoengHong     최초 생성
  */
-public class CalcApp {
-    static String CLAC_TITLE = "====계산기====";
+public class CalcApp{
+    public static String CLAC_TITLE = "====계산기====";
     private int num1;
     private int num2;
     private String opcode;

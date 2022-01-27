@@ -69,5 +69,4 @@ public class GradeApp2 {
         return (avg >= 60) ? "합격"
                 : "불합격";
     }
-
 }

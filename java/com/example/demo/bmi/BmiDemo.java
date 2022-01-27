@@ -14,18 +14,8 @@ import java.util.Scanner;
  * 2022-01-25      JeongMyoengHong     최초 생성
  */
 public class BmiDemo {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public String bmiDemo(double height, double weight) {
         BmiApp bmiApp = new BmiApp();
-
-        System.out.println(BmiApp.BMITITLE);
-
-        System.out.println("신장을 입력해주세요");
-        double height = scanner.nextDouble();
-        System.out.println("몸무게를 입력해주세요");
-        double weight = scanner.nextDouble();
-
-        System.out.println(String.format("당신의 BMI 지수는 %.2f 입니다.",bmiApp.bmi(height, weight)));
-        System.out.println(bmiApp.result());
+        return String.format("당신의 BMI 지수는 %.2f 입니다.",bmiApp.getBmi(height, weight));
     }
 }

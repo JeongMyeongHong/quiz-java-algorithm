@@ -18,15 +18,17 @@ public class GradeDemo {
         Scanner scanner = new Scanner(System.in);
         GradeApp gradeApp = new GradeApp();
         System.out.println(GradeApp.GRADE_TITLE + " 앱 입니다.");
-        System.out.println("이름을 입력해주세요.");
-        String name = scanner.next();
-        System.out.println("국어점수를 입력해주세요.");
-        int score_kr = scanner.nextInt();
-        System.out.println("영어점수를 입력해주세요.");
-        int score_en = scanner.nextInt();
-        System.out.println("수학점수를 입력해주세요.");
-        int score_math = scanner.nextInt();
-        System.out.println(gradeApp.getgrade(name, score_kr, score_en, score_math));
-    }
 
+        for(int i = 1; i < 3; i++){
+            System.out.println(i + "번 학생 이름을 입력해주세요.");
+            String name = scanner.next();
+            System.out.println("국어점수를 입력해주세요.");
+            int score_kr = scanner.nextInt();
+            System.out.println("영어점수를 입력해주세요.");
+            int score_en = scanner.nextInt();
+            System.out.println("수학점수를 입력해주세요.");
+            int score_math = scanner.nextInt();
+            System.out.println(gradeApp.getgrade(name, score_kr, score_en, score_math));
+        }
+    }
 }
