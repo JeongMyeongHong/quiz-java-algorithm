@@ -1,8 +1,8 @@
-package com.example.demo.grade2;
+package com.example.demo.domain;
 
 /**
- * packageName   :   com.example.demo.grade2
- * fileName      :   GradeApp2
+ * packageName   :   com.example.demo.grade
+ * fileName      :   GradeApp
  * author        :   JeongMyeongHong
  * date          :   2022-01-26
  * desc          :
@@ -24,49 +24,41 @@ package com.example.demo.grade2;
  * 출력되는 프로그램을 작성
  * 단, 합격 / 불합격 기준은
  * 평균 60점 이상이면 합격
+ * <p>
  * ============================================
  * DATE             AUTHOR              NOTE
  * ============================================
  * 2022-01-26      JeongMyoengHong     최초 생성
  */
-public class GradeApp2 {
+public class GradeDTO {
     public static String GRADE_TITLE = "성적표";
     private String name;
-    private int score_kr;
-    private int score_en;
-    private int score_math;
-    private int total;
-    private int avg;
+    private int kr;
+    private int en;
+    private int math;
 
-    public void setgrade(String name, int score_kr, int score_en, int score_math){
-        this.name = name;
-        this.score_kr = score_kr;
-        this.score_en = score_en;
-        this.score_math = score_math;
-        this.total = score_kr + score_en + score_math;
-        this.avg = this.total/3;
-
-    }
-    String getName(){
+    public String getName() {
         return name;
     }
-    int getscore_kr(){
-        return score_kr;
+    public void setName(String name) {
+        this.name = name;
     }
-    int getscore_en(){
-        return score_en;
+    public int getKr() {
+        return kr;
     }
-    int getscore_math(){
-        return score_math;
+    public void setKr(int kr) {
+        this.kr = kr;
     }
-    int gettotal(){
-        return total;
+    public int getEn() {
+        return en;
     }
-    int getavg(){
-        return avg;
+    public void setEn(int en) {
+        this.en = en;
     }
-    String getgrade(){
-        return (avg >= 60) ? "합격"
-                : "불합격";
+    public int getMath() {
+        return math;
+    }
+    public void setMath(int math) {
+        this.math = math;
     }
 }
