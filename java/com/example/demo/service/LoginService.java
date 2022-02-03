@@ -16,9 +16,9 @@ import com.example.demo.domain.LoginDTO;
 
 
 public class LoginService {
-    public String getlogin(LoginDTO login) {
+    public String login(LoginDTO login) {
         return login.getPw().equals(LoginDTO.PASSWORD) ?
-                String.format("%s님의 비번 %s가 맞습니다. 로그인 성공",login.getName(),login.getPw())
-                : String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패",login.getId(),login.getPw());
+                String.format("%s님의 비번 %s가 맞습니다. 로그인 성공", login.getName(), login.getPw())
+                : String.format("%s의 ID는 맞고, 비번 %s (이)가 틀립니다. 로그인 실패", login.getId(), login.getPw());
     }
 }

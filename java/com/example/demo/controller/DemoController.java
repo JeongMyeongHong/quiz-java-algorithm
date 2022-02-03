@@ -30,7 +30,7 @@ public class DemoController {
         BmiDTO bmi = new BmiDTO();
         CalcDTO calc = new CalcDTO();
         GoogleDTO google = new GoogleDTO();
-        GradeDTO grade = new GradeDTO();
+        GradeDTO[] grades;
         LoginDTO login = new LoginDTO();
         BmiService bmiService = new BmiService();
         CalcService calcService = new CalcService();
@@ -68,19 +68,24 @@ public class DemoController {
                     res = googleService.getgoogle(google);
                     break;
                 case 4:
-                    System.out.println(GradeDTO.GRADE_TITLE + " 앱 입니다. 이름, 국어, 영어, 수학 점수를 입력해주세요.");
-                    grade.setName(scanner.next());
-                    grade.setKr(scanner.nextInt());
-                    grade.setEn(scanner.nextInt());
-                    grade.setMath(scanner.nextInt());
-                    res = gradeService.getgrade(grade);
+                    System.out.print(GradeDTO.GRADE_TITLE + " 앱 입니다.\n학생수 입력 : ");
+                    grades = new GradeDTO[scanner.nextInt()];
+                    for (int i = 0; i < grades.length; i++) {
+                        System.out.println("이름, 국어, 영어, 수학 점수를 입력해주세요.");
+                        grades[i] = new GradeDTO();
+                        grades[i].setName(scanner.next());
+                        grades[i].setKr(scanner.nextInt());
+                        grades[i].setEn(scanner.nextInt());
+                        grades[i].setMath(scanner.nextInt());
+                    }
+                    res = gradeService.getgrade(grades);
                     break;
                 case 5:
                     System.out.println(LoginDTO.LOGIN_TITLE + " 앱 입니다. ID, PW, 이름을 입력해주세요.");
                     login.setId(scanner.next());
                     login.setPw(scanner.next());
                     login.setName(scanner.next());
-                    res = loginService.getlogin(login);
+                    res = loginService.login(login);
                     break;
                 default:
                     System.out.println("0~5를 입력해주세요.");

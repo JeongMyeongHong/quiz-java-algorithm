@@ -40,24 +40,31 @@ public class GradeDTO {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public int getKr() {
         return kr;
     }
+
     public void setKr(int kr) {
         this.kr = kr;
     }
+
     public int getEn() {
         return en;
     }
+
     public void setEn(int en) {
         this.en = en;
     }
+
     public int getMath() {
         return math;
     }
+
     public void setMath(int math) {
         this.math = math;
     }
