@@ -1,15 +1,11 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.BmiDTO;
-import com.example.demo.service.BmiService;
+import com.example.demo.service.*;
 import com.example.demo.domain.CalcDTO;
-import com.example.demo.service.CalcService;
 import com.example.demo.domain.GoogleDTO;
-import com.example.demo.service.GoogleService;
 import com.example.demo.domain.GradeDTO;
-import com.example.demo.service.GradeService;
 import com.example.demo.domain.LoginDTO;
-import com.example.demo.service.LoginService;
 
 import java.util.Scanner;
 
@@ -24,7 +20,7 @@ import java.util.Scanner;
  * ============================================
  * 2022-01-27      JeongMyoengHong     최초 생성
  */
-public class DemoController {
+public class StudentController {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         BmiDTO bmi = new BmiDTO();
@@ -32,11 +28,7 @@ public class DemoController {
         GoogleDTO google = new GoogleDTO();
         GradeDTO[] grades;
         LoginDTO login = new LoginDTO();
-        BmiService bmiService = new BmiService();
-        CalcService calcService = new CalcService();
-        GoogleService googleService = new GoogleService();
-        GradeService gradeService = new GradeService();
-        LoginService loginService = new LoginService();
+        StudentService studentService = new StudentServiceImpl();
 
         String res = "";
 
@@ -53,19 +45,19 @@ public class DemoController {
                     bmi.setName(scanner.next());
                     bmi.setHeight(scanner.nextInt());
                     bmi.setWeight(scanner.nextInt());
-                    res = bmiService.getBmi(bmi);
+                    res = studentService.getBmi(bmi);
                     break;
                 case 2:
                     System.out.println(CalcDTO.CLAC_TITLE + "\n숫자1, 연산자, 숫자2 입력");
                     calc.setNum1(scanner.nextInt());
                     calc.setOpcode(scanner.next());
                     calc.setNum2(scanner.nextInt());
-                    res = calcService.getcalc(calc);
+                    res = studentService.calc(calc);
                     break;
                 case 3:
                     System.out.println(GoogleDTO.GOOGLETITLE + "\n검색어 입력");
                     google.setSearchedword(scanner.next());
-                    res = googleService.getgoogle(google);
+                    res = studentService.search(google);
                     break;
                 case 4:
                     System.out.print(GradeDTO.GRADE_TITLE + " 앱 입니다.\n학생수 입력 : ");
@@ -78,14 +70,14 @@ public class DemoController {
                         grades[i].setEn(scanner.nextInt());
                         grades[i].setMath(scanner.nextInt());
                     }
-                    res = gradeService.getgrade(grades);
+                    res = studentService.getGrade(grades);
                     break;
                 case 5:
                     System.out.println(LoginDTO.LOGIN_TITLE + " 앱 입니다. ID, PW, 이름을 입력해주세요.");
                     login.setId(scanner.next());
                     login.setPw(scanner.next());
                     login.setName(scanner.next());
-                    res = loginService.login(login);
+                    res = studentService.login(login);
                     break;
                 default:
                     System.out.println("0~5를 입력해주세요.");
