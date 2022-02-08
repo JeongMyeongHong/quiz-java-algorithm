@@ -18,21 +18,25 @@ public class Feb07ServiceImpl implements Feb07Service {
     @Override
 
     public void dice(Scanner scanner) {
-        int answer = (int) (Math.random() * 6);
+        int answer = (int) (Math.random () * 6+1);
         int input = 0;
         while (true) {
-            System.out.println("1과 6사이 값을 입력하세요");
-            int dice = (int) (Math.random() * 6 + 1);
-            input = scanner.nextInt();
-            if (input == answer) {
-                System.out.println("주사위 : " + dice);
-                System.out.println("정답입니다.");
-            } else if (input != answer) {
-                System.out.println("주사위 : " + dice);
-                System.out.println("오답입니다.");
+            System.out.println ("1과 6사이 값을 입력하세요");
+            input = scanner.nextInt ();
+            if (input < answer) {
+                System.out.println ("주사위 : " + answer);
+                System.out.println ("오답입니다.");
+            } else if (input > answer) {
+                System.out.println ("주사위 : " + answer);
+                System.out.println ("오답입니다.");
+            } else if (input == answer) {
+                System.out.println ("주사위 : " + answer);
+                System.out.println ("정답입니다.");
+                break;
             }
         }
     }
+
 /*
                 System.out.println("===주사위게임===");
         int num = (int) (Math.random() * 6) + 1;
@@ -53,7 +57,7 @@ public class Feb07ServiceImpl implements Feb07Service {
 
     @Override
     public void rps(Scanner scanner) {
-        int user = 0;
+       int user = 0;
         int com = (int)(Math.random()*3);
         System.out.println("가위바위보 게임");
         System.out.println("0.가위 1.바위 2.보 선택");
@@ -69,17 +73,19 @@ public class Feb07ServiceImpl implements Feb07Service {
                 System.out.println("비김");break;
         }
 
-        /*System.out.println("===가위바위보===");
-        System.out.println("1. 가위 2. 바위 3. 보");
-        int inpunNum = scanner.nextInt();
-        int num = (int) (Math.random() * 3) + 1;
-        /*
-        1 - 2패 3승
-        2 - 3패 1승
-        3 - 1패 2승
-         */
 
-
+//        System.out.println("===가위바위보===");
+//        System.out.println("1. 가위 2. 바위 3. 보");
+//        int inputNum = scanner.nextInt();
+//        int num = (int) (Math.random() * 3) + 1;
+//        String[] rsp ={"가위","바위","보"};
+//        System.out.println("컴퓨터 : "+rsp[num]+", 사용자 : "+rsp[inputNum]);
+//
+//        /*
+//        1(가위) - 2패 3승
+//        2(바위) - 3패 1승
+//        3(보) - 1패 2승
+//         */
     }
 
     @Override
