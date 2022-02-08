@@ -12,4 +12,6 @@ package com.example.demo.algorithm.service;
  * 2022-02-08      JeongMyoengHong     최초 생성
  */
 public interface BinaryService {
+    long immigration(int n, int[] times);
+    int bridge(int distance, int[] rocks, int n);
 }

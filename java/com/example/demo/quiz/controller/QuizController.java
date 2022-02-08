@@ -1,10 +1,7 @@
 package com.example.demo.quiz.controller;
 
 import com.example.demo.quiz.domain.TeamDTO;
-import com.example.demo.quiz.service.Feb06Service;
-import com.example.demo.quiz.service.Feb06ServiceImpl;
-import com.example.demo.quiz.service.Feb07Service;
-import com.example.demo.quiz.service.Feb07ServiceImpl;
+import com.example.demo.quiz.service.*;
 
 import java.util.Scanner;
 
@@ -24,6 +21,7 @@ public class QuizController {
         Feb06Service feb06Service = new Feb06ServiceImpl();
         TeamDTO team = new TeamDTO();
         Feb07Service feb07Service = new Feb07ServiceImpl();
+        Feb08Service feb08Service = new Feb08ServiceImpl();
 
         while (true) {
             System.out.println("[서브메뉴]\n0.Exit 1.Feb06 2.Feb07 3.Feb08");
@@ -84,7 +82,28 @@ public class QuizController {
                     }
                     break;
                 case "3":
-                    System.out.println("1.Feb08");
+                    System.out.println("[소메뉴]\n0.시스템종료 1.로또 2.야구 3.예약 4.은행 5.구구단");
+                    switch (scanner.next()) {
+                        case "0":
+                            return;
+                        case "1":
+                            feb08Service.lotto(scanner);
+                            break;
+                        case "2":
+                            feb08Service.baseball(scanner);
+                            break;
+                        case "3":
+                            feb08Service.booking(scanner);
+                            break;
+                        case "4":
+                            feb08Service.bank(scanner);
+                            break;
+                        case "5":
+                            feb08Service.gugudan(scanner);
+                            break;
+                        default:
+                            System.out.println("잘못된 번호 입력");
+                    }
 
                     break;
                 default:

@@ -12,4 +12,8 @@ package com.example.demo.algorithm.service;
  * 2022-02-08      JeongMyoengHong     최초 생성
  */
 public class HeapServiceImpl implements HeapService{
+    @Override
+    public void ex() {
+
+    }
 }
