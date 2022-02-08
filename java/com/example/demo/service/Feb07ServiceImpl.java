@@ -1,4 +1,6 @@
-package com.example.demo.feb07;
+package com.example.demo.service;
+
+import com.example.demo.service.Feb07Service;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -18,7 +20,7 @@ public class Feb07ServiceImpl implements Feb07Service {
     @Override
 
     public void dice(Scanner scanner) {
-        int answer = (int) (Math.random () * 6+1);
+        int answer = (int) (Math.random () * 6 + 1);
         int input = 0;
         while (true) {
             System.out.println ("1과 6사이 값을 입력하세요");
@@ -58,11 +60,11 @@ public class Feb07ServiceImpl implements Feb07Service {
     @Override
     public void rps(Scanner scanner) {
        int user = 0;
-        int com = (int)(Math.random()*3);
+        int com = (int)(Math.random() * 3);
         System.out.println("가위바위보 게임");
         System.out.println("0.가위 1.바위 2.보 선택");
         user = scanner.nextInt();
-        String[] str ={"가위","바위","보"};
+        String[] str = {"가위","바위","보"};
         System.out.println("컴퓨터 : "+str[com]+", 사용자 : "+str[user]);
         switch (com-user){
             case 1: case -2:
