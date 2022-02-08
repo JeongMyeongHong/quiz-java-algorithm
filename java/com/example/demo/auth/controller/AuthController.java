@@ -1,11 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.auth.controller;
 
-import com.example.demo.domain.BmiDTO;
-import com.example.demo.service.*;
-import com.example.demo.domain.CalcDTO;
-import com.example.demo.domain.GoogleDTO;
-import com.example.demo.domain.GradeDTO;
-import com.example.demo.domain.LoginDTO;
+import com.example.demo.auth.domain.BmiDTO;
+import com.example.demo.auth.domain.CalcDTO;
+import com.example.demo.auth.domain.GoogleDTO;
+import com.example.demo.auth.domain.GradeDTO;
+import com.example.demo.auth.domain.LoginDTO;
+import com.example.demo.auth.service.MemberService;
+import com.example.demo.auth.service.MemberServiceImpl;
 
 import java.util.Scanner;
 
@@ -20,20 +21,19 @@ import java.util.Scanner;
  * ============================================
  * 2022-01-27      JeongMyoengHong     최초 생성
  */
-public class StudentController {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class AuthController {
+    public void excute(Scanner scanner) {
         BmiDTO bmi = new BmiDTO();
         CalcDTO calc = new CalcDTO();
         GoogleDTO google = new GoogleDTO();
         GradeDTO[] grades;
         LoginDTO login = new LoginDTO();
-        StudentService studentService = new StudentServiceImpl();
+        MemberService memberService = new MemberServiceImpl();
 
         String res = "";
 
         while (true) {
-            System.out.println("\n메뉴를 선택하세요.");
+            System.out.println("[서브메뉴]\n메뉴를 선택하세요.");
             System.out.println("0. 앱 종료. 1.BMI 2.CALC 3.SEARCH 4.GRADE 5.LOGIN");
 
             switch (scanner.nextInt()) {
@@ -45,19 +45,19 @@ public class StudentController {
                     bmi.setName(scanner.next());
                     bmi.setHeight(scanner.nextInt());
                     bmi.setWeight(scanner.nextInt());
-                    res = studentService.getBmi(bmi);
+                    res = memberService.getBmi(bmi);
                     break;
                 case 2:
                     System.out.println(CalcDTO.CLAC_TITLE + "\n숫자1, 연산자, 숫자2 입력");
                     calc.setNum1(scanner.nextInt());
                     calc.setOpcode(scanner.next());
                     calc.setNum2(scanner.nextInt());
-                    res = studentService.calc(calc);
+                    res = memberService.calc(calc);
                     break;
                 case 3:
                     System.out.println(GoogleDTO.GOOGLETITLE + "\n검색어 입력");
                     google.setSearchedword(scanner.next());
-                    res = studentService.search(google);
+                    res = memberService.search(google);
                     break;
                 case 4:
                     System.out.print(GradeDTO.GRADE_TITLE + " 앱 입니다.\n학생수 입력 : ");
@@ -70,14 +70,14 @@ public class StudentController {
                         grades[i].setEn(scanner.nextInt());
                         grades[i].setMath(scanner.nextInt());
                     }
-                    res = studentService.getGrade(grades);
+                    res = memberService.getGrade(grades);
                     break;
                 case 5:
                     System.out.println(LoginDTO.LOGIN_TITLE + " 앱 입니다. ID, PW, 이름을 입력해주세요.");
                     login.setId(scanner.next());
                     login.setPw(scanner.next());
                     login.setName(scanner.next());
-                    res = studentService.login(login);
+                    res = memberService.login(login);
                     break;
                 default:
                     System.out.println("0~5를 입력해주세요.");

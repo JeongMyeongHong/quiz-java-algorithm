@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.quiz.service;
 
 import java.util.Scanner;
 

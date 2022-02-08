@@ -1,6 +1,4 @@
-package com.example.demo.service;
-
-import com.example.demo.service.Feb07Service;
+package com.example.demo.quiz.service;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -21,6 +19,7 @@ public class Feb07ServiceImpl implements Feb07Service {
 
     public void dice(Scanner scanner) {
         int answer = (int) (Math.random () * 6 + 1);
+
         int input = 0;
         while (true) {
             System.out.println ("1과 6사이 값을 입력하세요");

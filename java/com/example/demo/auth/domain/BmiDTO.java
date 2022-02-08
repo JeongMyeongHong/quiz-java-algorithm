@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.auth.domain;
 
 /**
  * packageName   :   com.example.demo.bmi
@@ -15,7 +15,7 @@ package com.example.demo.domain;
  * ============================================
  * 2022-01-25      JeongMyoengHong     최초 생성
  */
-public class BmiDTO {
+public class BmiDTO extends Object{
     public static String BMITITLE = "====BMI APP====";
 
     private String name;

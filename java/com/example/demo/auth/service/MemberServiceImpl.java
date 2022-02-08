@@ -1,6 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.auth.service;
 
-import com.example.demo.domain.*;
+import com.example.demo.auth.domain.*;
 
 /**
  * packageName   :   com.example.demo.service
@@ -13,7 +13,7 @@ import com.example.demo.domain.*;
  * ============================================
  * 2022-02-07      JeongMyoengHong     최초 생성
  */
-public class StudentServiceImpl implements StudentService {
+public class MemberServiceImpl implements MemberService {
     /**
      * BMI = w / (t * t)
      * 고도 비만 : 35 이상
