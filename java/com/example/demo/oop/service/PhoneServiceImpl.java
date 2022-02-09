@@ -5,7 +5,6 @@ import com.example.demo.oop.domain.GalPhone;
 import com.example.demo.oop.domain.IPhone;
 import com.example.demo.oop.domain.Phone;
 
-import java.util.Scanner;
 
 /**
  * packageName   :   com.example.demo.phone
@@ -20,22 +19,22 @@ import java.util.Scanner;
  */
 public class PhoneServiceImpl implements PhoneService {
     @Override
-    public void usePhone(Scanner scanner) {
-        Phone phone = new Phone();
+    public void usePhone(Phone phone) {
+        System.out.println(phone.toString());
     }
 
     @Override
-    public void useCelPhone(Scanner scanner) {
-        CelPhone celPhone = new CelPhone();
+    public void useCelPhone(CelPhone celPhone) {
+        System.out.println(celPhone.toString());
     }
 
     @Override
-    public void useIPhone(Scanner scanner) {
-        IPhone iPhone = new IPhone();
+    public void useIPhone(IPhone iPhone) {
+        System.out.println(iPhone.toString());
     }
 
     @Override
-    public void useGalPhone(Scanner scanner) {
-        GalPhone galPhone = new GalPhone();
+    public void useGalPhone(GalPhone galPhone) {
+        System.out.println(galPhone.toString());
     }
 }

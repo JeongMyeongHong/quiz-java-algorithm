@@ -125,7 +125,7 @@ public class Feb08ServiceImpl implements Feb08Service {
                     int inputNum = scanner.nextInt() - 1;
                     for (int i = 0; i < seat.length; i++) {
                         if (seat[i] == (inputNum + 1)) {
-                            res += String.format(" %d", i+1);
+                            res += String.format(" %d", i + 1);
                         }
                     }
                     System.out.printf("예약된 이름 : %s\n" +
@@ -143,25 +143,27 @@ public class Feb08ServiceImpl implements Feb08Service {
     @Override
     public void bank(Scanner scanner) {//전종현
         int money = 0;
-        while (true){
+        while (true) {
             System.out.println("0.Exit | 1. 입금 2. 출금 3. 잔고");
-            switch (scanner.next()){
-                case "0" :
-                    System.out.println("Exit");return;
-                case "1" :
+            switch (scanner.next()) {
+                case "0":
+                    System.out.println("Exit");
+                    return;
+                case "1":
                     System.out.println("1.입금");
                     money += scanner.nextInt();
                     break;
-                case "2" :
+                case "2":
                     System.out.println("2.출금");
                     money -= scanner.nextInt();
                     break;
-                case "3" :
+                case "3":
                     System.out.println("3.잔고");
                     System.out.println("잔고는 : " + money);
                     break;
                 default:
-                    System.out.println("잘못된 숫자");break;
+                    System.out.println("잘못된 숫자");
+                    break;
             }
         }
     }
