@@ -142,7 +142,28 @@ public class Feb08ServiceImpl implements Feb08Service {
 
     @Override
     public void bank(Scanner scanner) {//전종현
-        System.out.println("은행입니다.");
+        int money = 0;
+        while (true){
+            System.out.println("0.Exit | 1. 입금 2. 출금 3. 잔고");
+            switch (scanner.next()){
+                case "0" :
+                    System.out.println("Exit");return;
+                case "1" :
+                    System.out.println("1.입금");
+                    money += scanner.nextInt();
+                    break;
+                case "2" :
+                    System.out.println("2.출금");
+                    money -= scanner.nextInt();
+                    break;
+                case "3" :
+                    System.out.println("3.잔고");
+                    System.out.println("잔고는 : " + money);
+                    break;
+                default:
+                    System.out.println("잘못된 숫자");break;
+            }
+        }
     }
 
     @Override
