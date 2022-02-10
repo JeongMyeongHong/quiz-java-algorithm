@@ -1,8 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.oop.controller.OopController;
-import com.example.demo.quiz.service.Feb08Service;
-import com.example.demo.quiz.service.Feb08ServiceHJM;
+import com.example.demo.quiz.service.*;
 
 import java.util.Scanner;
 
@@ -20,9 +19,9 @@ import java.util.Scanner;
 public class test {
     public static void main(String[] args) {
           Scanner scanner = new Scanner(System.in);
-//        Feb08Service feb08Service = new Feb08ServiceHJM();
-//        feb08Service.booking(scanner);
-        OopController oopController = new OopController();
-        oopController.excute(scanner);
+        Feb10Service feb10Service = new Feb10ServiceHJM();
+        feb10Service.magicSquare(3);
+//        OopController oopController = new OopController();
+//        oopController.excute(scanner);
     }
 }

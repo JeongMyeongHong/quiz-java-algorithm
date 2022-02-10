@@ -1,5 +1,7 @@
 package com.example.demo.oop.domain;
 
+import com.example.demo.auth.domain.CalcDTO;
+
 /**
  * packageName   :   com.example.demo.phone
  * fileName      :   IPhone
@@ -29,7 +31,7 @@ public class IPhone extends CelPhone {
 
     @Override
     public String toString() {
-        return String.format("[%s]에서 만든 %s을 사용해서 %s중에 [%s]를 검색한다.",
-                super.getCompany(), KIND, super.getMove(), search);
+        return "";
+        //return String.format("[%s]에서 만든 %s을 사용해서 %s중에 [%s]를 검색한다.", super.getCompany(), KIND, super.getMove(), search);
     }
 }

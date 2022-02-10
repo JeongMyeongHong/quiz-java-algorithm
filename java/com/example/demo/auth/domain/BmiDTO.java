@@ -15,8 +15,16 @@ package com.example.demo.auth.domain;
  * ============================================
  * 2022-01-25      JeongMyoengHong     최초 생성
  */
-public class BmiDTO extends Object{
+public class BmiDTO {
     public static String BMITITLE = "====BMI APP====";
+
+    private BmiDTO(){}
+
+    private final static BmiDTO bmiDTO = new BmiDTO();
+
+    public static BmiDTO getInstance(){
+        return bmiDTO;
+    }
 
     private String name;
     private double height;

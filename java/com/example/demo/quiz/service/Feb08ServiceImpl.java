@@ -12,7 +12,8 @@ import java.util.Scanner;
  * ============================================
  * DATE             AUTHOR              NOTE
  * ============================================
- * 2022-02-08      JeongMyoengHong     최초 생성
+ * 2022-02-08      JeongmyoengHong     최초 생성
+ * 2022-02-09      JonghyunJeon        구구단 추가
  */
 public class Feb08ServiceImpl implements Feb08Service {
     @Override

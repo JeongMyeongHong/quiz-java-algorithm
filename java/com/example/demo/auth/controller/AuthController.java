@@ -4,7 +4,7 @@ import com.example.demo.auth.domain.BmiDTO;
 import com.example.demo.auth.domain.CalcDTO;
 import com.example.demo.auth.domain.GoogleDTO;
 import com.example.demo.auth.domain.GradeDTO;
-import com.example.demo.auth.domain.LoginDTO;
+import com.example.demo.auth.domain.UserDTO;
 import com.example.demo.auth.service.MemberService;
 import com.example.demo.auth.service.MemberServiceImpl;
 
@@ -23,11 +23,7 @@ import java.util.Scanner;
  */
 public class AuthController {
     public void excute(Scanner scanner) {
-        BmiDTO bmi = new BmiDTO();
-        CalcDTO calc = new CalcDTO();
-        GoogleDTO google = new GoogleDTO();
         GradeDTO[] grades;
-        LoginDTO login = new LoginDTO();
         MemberService memberService = new MemberServiceImpl();
 
         String res = "";
@@ -42,6 +38,7 @@ public class AuthController {
                     return;
                 case 1:
                     System.out.println(BmiDTO.BMITITLE + "\n이름, 키, 몸무게 입력");
+                    BmiDTO bmi = BmiDTO.getInstance();
                     bmi.setName(scanner.next());
                     bmi.setHeight(scanner.nextInt());
                     bmi.setWeight(scanner.nextInt());
@@ -49,6 +46,7 @@ public class AuthController {
                     break;
                 case 2:
                     System.out.println(CalcDTO.CLAC_TITLE + "\n숫자1, 연산자, 숫자2 입력");
+                    CalcDTO calc = CalcDTO.getInstance();
                     calc.setNum1(scanner.nextInt());
                     calc.setOpcode(scanner.next());
                     calc.setNum2(scanner.nextInt());
@@ -56,6 +54,7 @@ public class AuthController {
                     break;
                 case 3:
                     System.out.println(GoogleDTO.GOOGLETITLE + "\n검색어 입력");
+                    GoogleDTO google = GoogleDTO.googleDTO();
                     google.setSearchedword(scanner.next());
                     res = memberService.search(google);
                     break;
@@ -64,7 +63,7 @@ public class AuthController {
                     grades = new GradeDTO[scanner.nextInt()];
                     for (int i = 0; i < grades.length; i++) {
                         System.out.println("이름, 국어, 영어, 수학 점수를 입력해주세요.");
-                        grades[i] = new GradeDTO();
+                        grades[i] = GradeDTO.getInstance();
                         grades[i].setName(scanner.next());
                         grades[i].setKr(scanner.nextInt());
                         grades[i].setEn(scanner.nextInt());
@@ -73,11 +72,12 @@ public class AuthController {
                     res = memberService.getGrade(grades);
                     break;
                 case 5:
-                    System.out.println(LoginDTO.LOGIN_TITLE + " 앱 입니다. ID, PW, 이름을 입력해주세요.");
-                    login.setId(scanner.next());
-                    login.setPw(scanner.next());
-                    login.setName(scanner.next());
-                    res = memberService.login(login);
+                    System.out.println(UserDTO.LOGIN_TITLE + " 앱 입니다. ID, PW, 이름을 입력해주세요.");
+                    UserDTO u = UserDTO.getInstance();
+                    u.setId(scanner.next());
+                    u.setPw(scanner.next());
+                    u.setName(scanner.next());
+                    res = memberService.login(u);
                     break;
                 default:
                     System.out.println("0~5를 입력해주세요.");

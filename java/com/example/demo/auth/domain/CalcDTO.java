@@ -12,7 +12,13 @@ package com.example.demo.auth.domain;
  * 2022-01-24      JeongMyoengHong     최초 생성
  */
 public class CalcDTO {
+
     public static String CLAC_TITLE = "====계산기====";
+    private final static CalcDTO calcDTO = new CalcDTO();
+    private CalcDTO(){}
+    public static CalcDTO getInstance(){
+        return calcDTO;
+    }
     private int num1;
     private int num2;
     private String opcode;

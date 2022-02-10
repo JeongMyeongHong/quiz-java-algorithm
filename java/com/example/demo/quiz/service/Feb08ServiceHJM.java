@@ -13,18 +13,43 @@ import java.util.Scanner;
  * ============================================
  * 2022-02-09      JeongMyoengHong     최초 생성
  */
-public class Feb08ServiceHJM implements Feb08Service{
+public class Feb08ServiceHJM implements Feb08Service {
     @Override
     public void lotto(Scanner scanner) {
-        while (true){
-            System.out.println("0.Exit 1.로또번호 생성");
-            switch (scanner.next()){
+        int[] lotto = new int[6];
+        int[] slotto = {4, 23, 24, 25, 34, 37};
+        while (true) {
+            System.out.println("0.Exit 1.로또번호 생성 2.로또번호 확인");
+            switch (scanner.next()) {
                 case "0":
                     System.out.println("Exit");
                     return;
                 case "1":
+                    String res = "";
+                    for (int i = 0; i < lotto.length; i++) {
+                        int x = (int) (Math.random() * 45 + 1);
+                        lotto[i] = x;
+                        for (int j = 0; j <= i; j++) {
+                            if (j == i) {
+                                res += lotto[i] + " ";
+                            } else if (lotto[i] == lotto[j]) {
+                                i--;
+                                break;
+                            }
+                        }
+                    }
+                    System.out.printf("생성된 번호는 %s 입니다.\n", res);
                     break;
+                case "2":
+                    System.out.println("당첨 여부를 확인합니다.");
+                    for(int i = 0; i< lotto.length; i++){
+
+                    }
+                    break;
+                default:
+                    System.out.println("잘못된 선택입니다.");
             }
+
         }
 
     }
@@ -83,7 +108,7 @@ public class Feb08ServiceHJM implements Feb08Service{
                     int inputNum = scanner.nextInt() - 1;
                     for (int i = 0; i < seat.length; i++) {
                         if (seat[i] == (inputNum + 1)) {
-                            res += String.format(" %d", i+1);
+                            res += String.format(" %d", i + 1);
                         }
                     }
                     System.out.printf("예약된 이름 : %s\n" +

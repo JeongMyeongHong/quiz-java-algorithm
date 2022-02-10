@@ -17,7 +17,18 @@ package com.example.demo.auth.domain;
  */
 public class GoogleDTO {
     public static String GOOGLETITLE = "GOOGLE";
+
+    private final static GoogleDTO googleDTO = new GoogleDTO();
+
+    private GoogleDTO(){}
+
+    public static GoogleDTO googleDTO(){
+        return googleDTO;
+    }
+
     private String searchedword;
+
+
 
     public String getSearchedword(){
         return searchedword;

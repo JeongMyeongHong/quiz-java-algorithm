@@ -12,7 +12,7 @@ package com.example.demo.oop.domain;
  * 2022-02-08      JeongMyoengHong     최초 생성
  */
 public class GalPhone extends IPhone {
-    public final static String KIND = "갤럭시";
+    public static final String KIND = "갤럭시";
     private String pay;
 
     public GalPhone(String company) {
