@@ -89,6 +89,10 @@ public class Feb07ServiceImpl implements Feb07Service {
 //         */
     }
 
+    /** author        :   JeongmyeongHong
+     *  desc          :
+     * */
+
     @Override
     public void getPrime(Scanner scanner) {
         System.out.println("===소수 구하기===\n 두개의 숫자를 입력해주세요.");

@@ -73,10 +73,10 @@ public class OopController {
                         }
                     }
                 case "3":
-                    System.out.println("아이폰 입니다.");
+                    System.out.println("implements가 추상화다.");
                     break;
                 case "4":
-                    System.out.println("갤럭시 입니다.");
+                    System.out.println("generic이 다형성이다.");
                     break;
                 default:
                     System.out.println("잘못된 선택 입니다.");

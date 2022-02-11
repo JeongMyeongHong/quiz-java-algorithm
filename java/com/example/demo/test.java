@@ -20,7 +20,7 @@ public class test {
     public static void main(String[] args) {
           Scanner scanner = new Scanner(System.in);
         Feb10Service feb10Service = new Feb10ServiceHJM();
-        feb10Service.magicSquare(3);
+        feb10Service.magicSquare(7);
 //        OopController oopController = new OopController();
 //        oopController.excute(scanner);
     }

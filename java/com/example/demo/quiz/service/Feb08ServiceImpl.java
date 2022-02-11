@@ -77,6 +77,11 @@ public class Feb08ServiceImpl implements Feb08Service {
         }
     }
 
+    /** author        :   JeongmyeongHong
+     *  desc          :   예약하는 사람의 정보를 받고 인원수만큼의 좌석을 예약하고 예약번호를 부여한다.
+     *                    부여받은 예약번호를 통해 예약된 정보를 확인 할 수 있다.
+     * */
+
     @Override
     public void booking(Scanner scanner) {//홍정명
         String[] name = new String[5];
@@ -101,10 +106,10 @@ public class Feb08ServiceImpl implements Feb08Service {
                             name[i] = scanner.next();
                             phoneNum[i] = scanner.next();
                             howMany[i] = scanner.nextInt();
-                            for (int j = 0; j < howMany[i]; j++) {
+                            for (int j = 0; j < howMany[i]; j++) { //인원수 만큼의 좌석 예약
                                 System.out.println(j + 1 + "번 좌석의 번호를 입력해주세요.(1~100)");
                                 int seatNum = scanner.nextInt() - 1;
-                                if (seat[seatNum] == 0) {
+                                if (seat[seatNum] == 0) { //현재 비어있는(값이 0) 좌석 이라면 예약
                                     seat[seatNum] = i + 1;
                                 } else {
                                     System.out.println("이미 선택된 좌석입니다.");
