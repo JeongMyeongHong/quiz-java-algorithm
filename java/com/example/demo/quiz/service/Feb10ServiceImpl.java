@@ -20,9 +20,10 @@ import java.util.Scanner;
  * JungGyeongJun        5번풀이
  */
 public class Feb10ServiceImpl implements Feb10Service {
-     /** author        :   JeongMyeongHong
-      *  desc          :
-      * */
+    /**
+     * author        :   JeongMyeongHong
+     * desc          :
+     */
     @Override
     public void bubbleSort() {
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
@@ -45,15 +46,19 @@ public class Feb10ServiceImpl implements Feb10Service {
     public void quickSort() {
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
-    /** author        :   JeongmyeongHong
-     *  desc          :
-     * */
+
+    /**
+     * author        :   JeongmyeongHong
+     * desc          :
+     */
     @Override
     public void mergeSort() {
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
-    /** author        :   JeongmyeongHong
-     *  desc          :
+
+    /**
+     * author        :   JeongmyeongHong
+     * desc          :
      * 홀수 마방진
      * 1. 정사각형의 맨 아랫줄 가운데에 숫자 1 을 둔다.
      * 2. 이전 숫자 위치에서 오른쪽 아래칸이 비어 있으면 다음 숫자를 채운다.
@@ -61,7 +66,7 @@ public class Feb10ServiceImpl implements Feb10Service {
      * 4. 오른쪽 아래칸이 사각형의 영역 밖이면 다음의 규칙을 따른다.
      * 4-1. 수평 및 수직으로 이동해서 마지막 칸이 비어 있으면 해당 칸에 숫자를 채운다.
      * 4-2. 수평 및 수직으로 이동해도 칸이 없는 경우 이전의 숫자 위치 위쪽 칸에 다음 숫자를 채운다.
-     * */
+     */
 
     @Override
     public void magicSquare(int num) {
@@ -70,6 +75,7 @@ public class Feb10ServiceImpl implements Feb10Service {
 
         if (num % 2 == 1) {
             int index = square.length - (int) (num / 2) - 1;
+
             square[index] = 1;
             for (int i = 2; i <= square.length; i++) {
                 if ((index / num == (num - 1)) && (index % num == (num - 1))) {

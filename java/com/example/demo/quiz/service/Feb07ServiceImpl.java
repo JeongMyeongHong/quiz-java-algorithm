@@ -38,23 +38,6 @@ public class Feb07ServiceImpl implements Feb07Service {
         }
     }
 
-/*
-                System.out.println("===주사위게임===");
-        int num = (int) (Math.random() * 6) + 1;
-        int numCom = (int) (Math.random() * 6) + 1;
-
-        System.out.println("유저의 주사위는 " + num + "입니다.");
-        System.out.println("시스템의 주사위는 "+numCom + "입니다.");
-
-        if (num == numCom) {
-            System.out.println("무승부");
-        } else if (num > numCom) {
-            System.out.println("유저승리");
-        }else{
-            System.out.println("시스템승리");
-        }
-
- */
 
     @Override
     public void rps(Scanner scanner) {
@@ -73,48 +56,34 @@ public class Feb07ServiceImpl implements Feb07Service {
             default:
                 System.out.println("비김");break;
         }
-
-
-//        System.out.println("===가위바위보===");
-//        System.out.println("1. 가위 2. 바위 3. 보");
-//        int inputNum = scanner.nextInt();
-//        int num = (int) (Math.random() * 3) + 1;
-//        String[] rsp ={"가위","바위","보"};
-//        System.out.println("컴퓨터 : "+rsp[num]+", 사용자 : "+rsp[inputNum]);
-//
-//        /*
-//        1(가위) - 2패 3승
-//        2(바위) - 3패 1승
-//        3(보) - 1패 2승
-//         */
     }
 
     /** author        :   JeongmyeongHong
-     *  desc          :
+     *  desc          :   입력받은 두개의 숫자 사이의 소수를 전부 출력한다.
      * */
 
     @Override
     public void getPrime(Scanner scanner) {
         System.out.println("===소수 구하기===\n 두개의 숫자를 입력해주세요.");
-        int no1 = scanner.nextInt();
         int no2 = scanner.nextInt();
+        int no1 = scanner.nextInt();
         String res = "";
-        if (no1 < no2) {
-            int temp = no1;
-            no1 = no2;
-            no2 = temp;
+        if (no2 < no1) { //숫자 정렬
+            int temp = no2;
+            no2 = no1;
+            no1 = temp;
         }
 
-        for (int i = no2; i < no1; i++) {
-            for (int j = 2; j <= i; j++) {
-                if (j == i) {
+        for (int i = no1; i < no2; i++) {
+            for (int j = 2; j <= i; j++) { // 1은 모든수의 약수 이므로 제외한다.
+                if (j == i) { //약수가 맨 마지막 까지 없다면 소수이므로 res에 더해준다.
                     res += String.format("%d ", i);
-                } else if (i % j == 0) {
+                } else if (i % j == 0) { //1과 자신 이외에 나누어 떨어지는 수가 있으므로 소수가 아니다.
                     break;
                 }
             }
         }
-        System.out.println(String.format("%d와 %d 사이의 소수는 %s 입니다.", no2, no1, res));
+        System.out.println(String.format("%d와 %d 사이의 소수는 %s 입니다.", no1, no2, res));
     }
 
     @Override

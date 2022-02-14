@@ -17,7 +17,7 @@ public class Feb08ServiceHJM implements Feb08Service {
     @Override
     public void lotto(Scanner scanner) {
         int[] lotto = new int[6];
-        int[] slotto = {4, 23, 24, 25, 34, 37};
+        int[] answer = {4, 23, 24, 25, 34, 37};
         while (true) {
             System.out.println("0.Exit 1.로또번호 생성 2.로또번호 확인");
             switch (scanner.next()) {

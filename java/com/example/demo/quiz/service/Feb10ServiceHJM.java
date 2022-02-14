@@ -10,22 +10,70 @@ package com.example.demo.quiz.service;
  * DATE             AUTHOR              NOTE
  * ============================================
  * 2022-02-10      JeongMyoengHong     최초 생성
- *     -                 -            8번 9번 완료.
+ * -                 -            8번 9번 완료.
  * 2022-02-11            -            6번 홀수 완료.
- *
  */
 public class Feb10ServiceHJM implements Feb10Service {
     /*
      *  1인분
      * */
+    public int[] creatArr() {
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 100 + 1);
+        }
+        return arr;
+    }
+    public void printArr(int arr[]){
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    /** author        :   JeongmyeongHong
+     *  desc          :   (BubbleSort)인접한 두개의 숫자를 비교하여 더 큰 숫자를 뒤로 보내는 방식의 정렬.
+     *                    정렬 실행 시 가장 큰 숫자부터 정렬된다.
+     * */
     @Override
     public void bubbleSort() {//1번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
+        int[] arr = creatArr();
+        System.out.println("정렬 전");
+        printArr(arr);
+        bubble(arr, arr.length);
+        System.out.println("정렬 후");
+        printArr(arr);
     }
+
+    public void bubble(int[] arr, int end) {
+        if (end > 0) {
+            for (int i = 0; i < end - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    int tmp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = tmp;
+                }
+            }
+            bubble(arr, end - 1);
+        }
+    }
+
+
+    /** author        :   JeongmyeongHong
+     *  desc          :   (InsertionSort)
+     * */
 
     @Override
     public void insertionSort() {//2번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
+        int[] arr = creatArr();
+        insertion(arr, arr.length);
+        printArr(arr);
+    }
+
+    public void insertion(int[] arr, int end){
+
     }
 
     @Override
@@ -44,6 +92,39 @@ public class Feb10ServiceHJM implements Feb10Service {
     @Override
     public void mergeSort() {//5번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
+        int[] arr = creatArr();
+        System.out.println("최초 생성");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        merge(arr, 0, arr.length - 1);
+        System.out.println("소트 실행 후");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+    }
+
+    public void merge(int[] arr, int left, int right) {
+        int[] tmp = new int[arr.length];
+        if (left < right) {
+            int mid = (left + right) / 2;
+            merge(arr, left, mid);
+            merge(arr, mid + 1, right);
+            int leftIndex = left;
+            int midIndex = mid + 1;
+            int idx = leftIndex;
+            while (leftIndex <= mid || midIndex <= right) {
+                if (midIndex > right || (leftIndex <= mid && arr[leftIndex] < arr[midIndex])) {
+                    tmp[idx++] = arr[leftIndex++];
+                } else {
+                    tmp[idx++] = arr[midIndex++];
+                }
+            }
+            for (int i = left; i <= right; i++) {
+                arr[i] = tmp[i];
+            }
+        }
     }
 
     /**
@@ -54,7 +135,7 @@ public class Feb10ServiceHJM implements Feb10Service {
      * 4. 오른쪽 아래칸이 사각형의 영역 밖이면 다음의 규칙을 따른다.
      * 4-1. 수평 및 수직으로 이동해서 마지막 칸이 비어 있으면 해당 칸에 숫자를 채운다.
      * 4-2. 수평 및 수직으로 이동해도 칸이 없는 경우 이전의 숫자 위치 위쪽 칸에 다음 숫자를 채운다.
-     *
+     * <p>
      * 짝수 마방진
      * 1. 대각선의 위치만 1 부터 시작해서 해당칸이 몇 번째 칸인지 숫자를 채운다.
      * 2. 맨 오른쪽 아래부터 위로 올라오면서 채워지지 않은 숫자를 순서대로 채운다.
@@ -97,7 +178,7 @@ public class Feb10ServiceHJM implements Feb10Service {
         }
     }
 
-    public void oddmagicSquare(int num){
+    public void oddmagicSquare(int num) {
 
     }
 
