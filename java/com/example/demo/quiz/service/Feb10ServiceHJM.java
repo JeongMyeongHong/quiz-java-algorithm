@@ -22,60 +22,72 @@ public class Feb10ServiceHJM implements Feb10Service {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 100 + 1);
         }
+        System.out.println("정렬 전");
+        printArr(arr);
         return arr;
     }
-    public void printArr(int arr[]){
+
+    public void printArr(int arr[]) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
 
-    /** author        :   JeongmyeongHong
-     *  desc          :   (BubbleSort)인접한 두개의 숫자를 비교하여 더 큰 숫자를 뒤로 보내는 방식의 정렬.
-     *                    정렬 실행 시 가장 큰 숫자부터 정렬된다.
-     * */
+    /**
+     * author        :   JeongmyeongHong
+     * desc          :   (BubbleSort)인접한 두개의 숫자를 비교하여 더 큰 숫자를 뒤로 보내는 방식의 정렬.
+     *                              정렬 실행 시 뒤쪽부터 정렬이 완료된다.
+     */
     @Override
     public void bubbleSort() {//1번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
         int[] arr = creatArr();
-        System.out.println("정렬 전");
-        printArr(arr);
-        bubble(arr, arr.length);
+
+        for (int i = arr.length; i > 0; i--) {
+            for (int j = 0; j < i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+                }
+            }
+        }
+
         System.out.println("정렬 후");
         printArr(arr);
     }
 
-    public void bubble(int[] arr, int end) {
-        if (end > 0) {
-            for (int i = 0; i < end - 1; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    int tmp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = tmp;
-                }
-            }
-            bubble(arr, end - 1);
-        }
-    }
-
-
-    /** author        :   JeongmyeongHong
-     *  desc          :   (InsertionSort)
-     * */
+    /**
+     * author        :   JeongmyeongHong
+     * desc          :   (InsertionSort) 이미 정렬된 배열에서 현재 인덱스의 값이 위치할 곳에 삽입되는 정렬.
+     */
 
     @Override
     public void insertionSort() {//2번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
         int[] arr = creatArr();
-        insertion(arr, arr.length);
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] < arr[j]) {
+                    int tmp = arr[i];
+                    for (int k = i; k > j; k--) {
+                        arr[k] = arr[k-1];
+                    }
+                    arr[j] = tmp;
+                    break;
+                }
+            }
+        }
+        System.out.println("정렬 후");
         printArr(arr);
     }
 
-    public void insertion(int[] arr, int end){
 
-    }
-
+    /**
+     * author        :   JeongmyeongHong
+     * desc          :   (SelectionSort)
+     */
     @Override
     public void selectionSort() {//3번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬

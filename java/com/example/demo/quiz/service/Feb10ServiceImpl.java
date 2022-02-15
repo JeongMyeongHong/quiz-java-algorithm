@@ -25,17 +25,17 @@ public class Feb10ServiceImpl implements Feb10Service {
      * desc          :
      */
     @Override
-    public void bubbleSort() {
+    public void bubbleSort() {//전종현
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
 
     @Override
-    public void insertionSort() {
+    public void insertionSort() {//전종현
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
 
     @Override
-    public void selectionSort() {
+    public void selectionSort() {//전종현
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
 
@@ -43,7 +43,7 @@ public class Feb10ServiceImpl implements Feb10Service {
      *  1인분
      * */
     @Override
-    public void quickSort() {
+    public void quickSort() {//노홍주
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
 
@@ -52,7 +52,7 @@ public class Feb10ServiceImpl implements Feb10Service {
      * desc          :
      */
     @Override
-    public void mergeSort() {
+    public void mergeSort() {//노홍주
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
 
@@ -69,7 +69,7 @@ public class Feb10ServiceImpl implements Feb10Service {
      */
 
     @Override
-    public void magicSquare(int num) {
+    public void magicSquare(int num) {//홍정명
         int[] square = new int[num * num];
         int nextIndex;
 
@@ -137,7 +137,7 @@ public class Feb10ServiceImpl implements Feb10Service {
     }
 
     @Override
-    public void rectangleStarPrint() {
+    public void rectangleStarPrint() {//정경준
         int line = (int) (Math.random() * 15 + 1);
         Scanner input = new Scanner(System.in);
         for (int i = 0; i < line; i++) {
@@ -150,7 +150,7 @@ public class Feb10ServiceImpl implements Feb10Service {
     }
 
     @Override
-    public void triangleStarPrint() {
+    public void triangleStarPrint() {//정경준
         int line = (int) (Math.random() * 15 + 1);
         for (int i = line, add = 0; i > 0; i--, add++) {
             for (int j = 0; j < i - 1; j++) {

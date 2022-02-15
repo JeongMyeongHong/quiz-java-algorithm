@@ -17,22 +17,22 @@ import java.util.Scanner;
 public class Feb07ServiceImpl implements Feb07Service {
     @Override
 
-    public void dice(Scanner scanner) {
-        int answer = (int) (Math.random () * 6 + 1);
+    public void dice(Scanner scanner) {//정경준
+        int answer = (int) (Math.random() * 6 + 1);
 
         int input = 0;
         while (true) {
-            System.out.println ("1과 6사이 값을 입력하세요");
-            input = scanner.nextInt ();
+            System.out.println("1과 6사이 값을 입력하세요");
+            input = scanner.nextInt();
             if (input < answer) {
-                System.out.println ("주사위 : " + answer);
-                System.out.println ("오답입니다.");
+                System.out.println("주사위 : " + answer);
+                System.out.println("오답입니다.");
             } else if (input > answer) {
-                System.out.println ("주사위 : " + answer);
-                System.out.println ("오답입니다.");
+                System.out.println("주사위 : " + answer);
+                System.out.println("오답입니다.");
             } else if (input == answer) {
-                System.out.println ("주사위 : " + answer);
-                System.out.println ("정답입니다.");
+                System.out.println("주사위 : " + answer);
+                System.out.println("정답입니다.");
                 break;
             }
         }
@@ -40,30 +40,36 @@ public class Feb07ServiceImpl implements Feb07Service {
 
 
     @Override
-    public void rps(Scanner scanner) {
-       int user = 0;
-        int com = (int)(Math.random() * 3);
+    public void rps(Scanner scanner) {//노홍주
+        int user = 0;
+        int com = (int) (Math.random() * 3);
         System.out.println("가위바위보 게임");
         System.out.println("0.가위 1.바위 2.보 선택");
         user = scanner.nextInt();
-        String[] str = {"가위","바위","보"};
-        System.out.println("컴퓨터 : "+str[com]+", 사용자 : "+str[user]);
-        switch (com-user){
-            case 1: case -2:
-                System.out.println("컴퓨터 승");break;
-            case 2: case -1:
-                System.out.println("사용자 승");break;
+        String[] str = {"가위", "바위", "보"};
+        System.out.println("컴퓨터 : " + str[com] + ", 사용자 : " + str[user]);
+        switch (com - user) {
+            case 1:
+            case -2:
+                System.out.println("컴퓨터 승");
+                break;
+            case 2:
+            case -1:
+                System.out.println("사용자 승");
+                break;
             default:
-                System.out.println("비김");break;
+                System.out.println("비김");
+                break;
         }
     }
 
-    /** author        :   JeongmyeongHong
-     *  desc          :   입력받은 두개의 숫자 사이의 소수를 전부 출력한다.
-     * */
+    /**
+     * author        :   JeongmyeongHong
+     * desc          :   입력받은 두개의 숫자 사이의 소수를 전부 출력한다.
+     */
 
     @Override
-    public void getPrime(Scanner scanner) {
+    public void getPrime(Scanner scanner) {//홍정명
         System.out.println("===소수 구하기===\n 두개의 숫자를 입력해주세요.");
         int no2 = scanner.nextInt();
         int no1 = scanner.nextInt();
@@ -87,7 +93,7 @@ public class Feb07ServiceImpl implements Feb07Service {
     }
 
     @Override
-    public void leapYear(Scanner scanner) {
+    public void leapYear(Scanner scanner) {//전종현
         System.out.println("===윤년평년 판단===");
         System.out.println("년도를 입력해주세요");
         int s = scanner.nextInt();
@@ -99,7 +105,7 @@ public class Feb07ServiceImpl implements Feb07Service {
     }
 
     @Override
-    public void numberGolf(Scanner scanner) {
+    public void numberGolf(Scanner scanner) {//양정오
         Random random = new Random();
         System.out.println("숫자 맞추기 게임");
         int num = random.nextInt(100) + 1;
