@@ -1,5 +1,6 @@
 package com.example.demo.quiz.service;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -17,7 +18,8 @@ public class Feb07ServiceHJM implements Feb07Service {
     @Override
     public void dice(Scanner scanner) {
         int sysDice = (int) (Math.random() * 6 + 1);
-        int userDice = (int) (Math.random() * 6 + 1);
+        Random random = new Random();
+        int userDice = random.nextInt(6)+1;
         System.out.printf("유저 : %d 시스템 : %d\n", userDice, sysDice);
         if (sysDice == userDice) {
             System.out.println("비겼습니다.");

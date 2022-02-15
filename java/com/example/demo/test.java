@@ -20,7 +20,9 @@ import java.util.Scanner;
 public class test {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Feb10Service feb10Service = new Feb10ServiceHJM();
-        feb10Service.bubbleSort();
+//        Feb10Service feb10Service = new Feb10ServiceHJM();
+//        feb10Service.bubbleSort();
+        Feb07Service feb07Service = new Feb07ServiceHJM();
+        feb07Service.dice(scanner);
     }
 }
