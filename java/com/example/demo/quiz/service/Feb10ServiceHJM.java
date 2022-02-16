@@ -97,14 +97,14 @@ public class Feb10ServiceHJM implements Feb10Service {
      *  1인분
      * */
     @Override
-    public void quickSort() {//4번
+    public void quickSort(int[] arr, int start, int end) {//4번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
     }
 
     @Override
-    public void mergeSort() {//5번
+    public void mergeSort(int[] arr) {//5번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
-        int[] arr = creatArr();
+        //int[] arr = creatArr();
         System.out.println("최초 생성");
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");

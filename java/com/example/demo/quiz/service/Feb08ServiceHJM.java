@@ -28,7 +28,9 @@ public class Feb08ServiceHJM implements Feb08Service {
                     String res = "";
                     for (int i = 0; i < lotto.length; i++) {
                         int x = (int) (Math.random() * 45 + 1);
-                        lotto[i] = x;
+                        lotto[i] = x;//i 0 30
+                                    // i 1 30
+                                    //i 2
                         for (int j = 0; j <= i; j++) {
                             if (j == i) {
                                 res += lotto[i] + " ";

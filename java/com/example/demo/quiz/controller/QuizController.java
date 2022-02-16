@@ -122,10 +122,10 @@ public class QuizController {
                             feb10Service.selectionSort();
                             break;
                         case "4":
-                            feb10Service.quickSort();
+                            //feb10Service.quickSort();
                             break;
                         case "5":
-                            feb10Service.mergeSort();
+                            //feb10Service.mergeSort();
                             break;
                         case "6":
                             //feb10Service.magicSquare();
