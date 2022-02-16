@@ -20,33 +20,51 @@ import java.util.Scanner;
  * JungGyeongJun        5번풀이
  */
 public class Feb10ServiceImpl implements Feb10Service {
+    public int[] creatArr() {
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 100 + 1);
+        }
+        printArr(arr);
+        System.out.println("정렬 전");
+        return arr;
+    }
 
+    public void printArr(int arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
 
     public void bubbleSort() {//전종현
         int[] arr = new int[10];
 
-        for (int i=0; i<arr.length; i++) {
-            arr[i]= (int)(Math.random()*100)+1;  //랜덤함수를 이용해 1~100까지의 정수 중 10개를 뽑는다.
-            for (int j=0; j<i; j++) {
-                if (arr[i]==arr[j]) {
-                    i--; break;  //숫자가 나오는 순서대로 중복되는 값이 있으면 그 자리에 다시 새로운 값이 들어오도록 한다.
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 100) + 1;  //랜덤함수를 이용해 1~100까지의 정수 중 10개를 뽑는다.
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    i--;
+                    break;  //숫자가 나오는 순서대로 중복되는 값이 있으면 그 자리에 다시 새로운 값이 들어오도록 한다.
                 }
             }
         }
         int temp = 0;
-        for (int i=0; i< arr.length; i++){
-            for (int j=0; j< arr.length-1; j++){ //1회전 후 가장 큰 수가 제일 뒤에 위치하면서 마지막 요소는 자연스럽게 정렬되므로 -1
-                if(arr[j]>arr[j+1]){    //왼쪽값(j)이 오른쪽값(j+1)보다 크면
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - 1; j++) { //1회전 후 가장 큰 수가 제일 뒤에 위치하면서 마지막 요소는 자연스럽게 정렬되므로 -1
+                if (arr[j] > arr[j + 1]) {    //왼쪽값(j)이 오른쪽값(j+1)보다 크면
                     temp = arr[j];    //우선 temp에 arr[j] 값을 넣어두고
-                    arr[j] = arr[j+1];  //비어있는 arr[j] 자리에 arr[j+1]값을 넣어준다.
-                    arr[j+1] = temp;}    //마지막으로 temp에 있던 값을 비어있는 arr[j+1]자리에 넣어주면 두 숫자의 자리가 바뀐다.
+                    arr[j] = arr[j + 1];  //비어있는 arr[j] 자리에 arr[j+1]값을 넣어준다.
+                    arr[j + 1] = temp;
+                }    //마지막으로 temp에 있던 값을 비어있는 arr[j+1]자리에 넣어주면 두 숫자의 자리가 바뀐다.
             }
         }
 
-        for (int i=0; i<arr.length; i++) {
-            System.out.print(arr[i]+"\t");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + "\t");
         }
     }
+
     /**
      * 1. 현재 타겟이 되는 숫자와 이전 위치에 있는 원소들을 비교한다.
      * 2. 첫 번째 타겟은 두 번째 원소부터 시작해 첫 번째 값과 비교한다.
@@ -58,24 +76,26 @@ public class Feb10ServiceImpl implements Feb10Service {
     @Override
     public void insertionSort() {//전종현
         int[] arr = new int[10];
-        for (int i=0; i<arr.length; i++) {       //1~100까지의 정수 중 랜덤으로 10개 숫자 뽑기
-            arr[i]= (int)(Math.random()*100)+1;
-            for (int j=0; j<i; j++) {
-                if (arr[i]==arr[j]) {
-                    i--; break;
+        for (int i = 0; i < arr.length; i++) {       //1~100까지의 정수 중 랜덤으로 10개 숫자 뽑기
+            arr[i] = (int) (Math.random() * 100) + 1;
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    i--;
+                    break;
                 }
             }
         }
         int temp = 0;
         int j = 0;
-        for (int i=1; i<arr.length; i++) {  //0번은 정렬된 상태로 가정하고 1번 값부터 왼쪽에 있는 값들과 비교한다.
+        for (int i = 1; i < arr.length; i++) {  //0번은 정렬된 상태로 가정하고 1번 값부터 왼쪽에 있는 값들과 비교한다.
             temp = arr[i];  //현재 선택된 원소의 값을 temp 에 넣어준다.
             for (j = i - 1; j >= 0 && temp < arr[j]; j--) { //j의 인덱스가 0이상이고 왼쪽값이 temp 값보다 크면 반복문을 실행한다.
-                arr[j  + 1] = arr[j]; //조건에 부합하는 값을 만나면 그 값은 오른쪽으로 이동한다.
-            } arr[j+1] = temp; //삽입할 자리를 찾으면 그곳에 temp 값을 넣어준다. 다시 위로 올라가 인덱스 2번 값부터 다시 반복한다.
+                arr[j + 1] = arr[j]; //조건에 부합하는 값을 만나면 그 값은 오른쪽으로 이동한다.
+            }
+            arr[j + 1] = temp; //삽입할 자리를 찾으면 그곳에 temp 값을 넣어준다. 다시 위로 올라가 인덱스 2번 값부터 다시 반복한다.
         }
-        for (int i=0; i<arr.length; i++){
-            System.out.print(arr[i]+ "\t");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + "\t");
         }
     }
 
@@ -83,25 +103,26 @@ public class Feb10ServiceImpl implements Feb10Service {
      * 1. 주어진 리스트에서 최솟값을 찾는다.
      * 2. 최솟값을 맨 앞 자리의 값과 교환한다.
      * 3. 맨 앞 자리를 제외한 나머지 값들 중 최솟값을 찾아 위와 같은 방법으로 반복한다.
-     * */
+     */
 
     @Override
     public void selectionSort() {//전종현
         int[] arr = new int[10];
 
-        for (int i=0; i<arr.length; i++) {    //1~100까지의 정수 중 랜덤으로 10개 숫자 뽑기
-            arr[i]= (int)(Math.random()*100)+1;
-            for (int j=0; j<i; j++) {
-                if (arr[i]==arr[j]) {
-                    i--; break;
+        for (int i = 0; i < arr.length; i++) {    //1~100까지의 정수 중 랜덤으로 10개 숫자 뽑기
+            arr[i] = (int) (Math.random() * 100) + 1;
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    i--;
+                    break;
                 }
             }
         }
 
         int min = 0;
-        for (int i=0; i<arr.length-1; i++) {  //1~9회전을 하면 마지막 요소는 자연스럽게 정렬 되므로 -1
+        for (int i = 0; i < arr.length - 1; i++) {  //1~9회전을 하면 마지막 요소는 자연스럽게 정렬 되므로 -1
             min = i;                             //우선 i를 최솟값 변수에 저장해둔다. -> arr[min]
-            for (int j=i+1; j<arr.length; j++) {   //arr[i+1]번째 원소부터 arr[min] 값과 비교한다.
+            for (int j = i + 1; j < arr.length; j++) {   //arr[i+1]번째 원소부터 arr[min] 값과 비교한다.
                 if (arr[min] > arr[j]) {         //arr[min]의 값이 arr[j]의 값보다 크면 arr[min]은 j가 된다.
                     min = j;                      //반복해서 비교하며 최종 최솟값을 찾아낸다.
                 }
@@ -122,41 +143,48 @@ public class Feb10ServiceImpl implements Feb10Service {
 
 
     @Override
-    public void quickSort(int[] arr, int start, int end) { //실행안됨
-        int part=partition(arr, start, end);
-        if(start<part-1) {
-            quickSort(arr,start,part-1);
+    public void quickSort() { //실행안됨
+        int[] arr = creatArr();
+        quick(arr, 0, arr.length-1);
+    }
+    public void quick(int[] arr, int start, int end) { //실행안됨
+        int part = partition(arr, start, end);
+        if (start < part - 1) {
+            quick(arr, start, part - 1);
         }
-        if(end>part) {
-            quickSort(arr,part,end);
+        if (end > part) {
+            quick(arr, part, end);
         }
     }
 
-    public int partition(int[] arr,int start,int end) {
-        int pivot=arr[(start+end)/2];//중간 값 구하기
-        while(start<=end) {
-            while(arr[start]<pivot) start++;
-            while(arr[end]>pivot) end--;
-            if(start<=end) {
-                swap(arr,start,end);
+    public int partition(int[] arr, int start, int end) {
+        int pivot = arr[(start + end) / 2];//중간 값 구하기
+        while (start <= end) {
+            while (arr[start] < pivot) start++;
+            while (arr[end] > pivot) end--;
+            if (start <= end) {
+                swap(arr, start, end);
                 start++;
                 end--;
             }
         }
         return start;
     }
-    public void swap(int[] arr,int start,int end) {
-        int tmp=arr[start];
-        arr[start]=arr[end];
-        arr[end]=tmp;
+
+    public void swap(int[] arr, int start, int end) {
+        int tmp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = tmp;
         return;
     }
 
     @Override
-    public void mergeSort(int[] arr) { //실행안됨
+    public void mergeSort() { //실행안됨
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
+        int arr[] = creatArr();
         sort(arr, 0, arr.length);
     }
+
     public void sort(int[] arr, int low, int high) {
         if (high - low < 2) {
             return;
@@ -167,6 +195,7 @@ public class Feb10ServiceImpl implements Feb10Service {
         sort(arr, mid, high);//정렬 후 병합
         merge(arr, low, mid, high);
     }
+
     //잘 모르겠습니다.
     public void merge(int[] arr, int low, int mid, int high) {
         int[] temp = new int[high - low];

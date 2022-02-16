@@ -22,8 +22,8 @@ public class Feb10ServiceHJM implements Feb10Service {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 100 + 1);
         }
-        System.out.println("정렬 전");
         printArr(arr);
+        System.out.println("정렬 전");
         return arr;
     }
 
@@ -36,8 +36,9 @@ public class Feb10ServiceHJM implements Feb10Service {
 
     /**
      * author        :   JeongmyeongHong
-     * desc          :   (BubbleSort)인접한 두개의 숫자를 비교하여 더 큰 숫자를 뒤로 보내는 방식의 정렬.
-     *                              정렬 실행 시 뒤쪽부터 정렬이 완료된다.
+     * desc          :
+     * (BubbleSort)인접한 두개의 숫자를 비교하여 더 큰 숫자를 뒤로 보내는 방식의 정렬.
+     * 정렬 실행 시 뒤쪽부터 정렬이 완료된다.
      */
     @Override
     public void bubbleSort() {//1번
@@ -72,12 +73,13 @@ public class Feb10ServiceHJM implements Feb10Service {
                 if (arr[i] < arr[j]) {
                     int tmp = arr[i];
                     for (int k = i; k > j; k--) {
-                        arr[k] = arr[k-1];
+                        arr[k] = arr[k - 1];
                     }
                     arr[j] = tmp;
                     break;
                 }
             }
+            printArr(arr);
         }
         System.out.println("정렬 후");
         printArr(arr);
@@ -86,35 +88,48 @@ public class Feb10ServiceHJM implements Feb10Service {
 
     /**
      * author        :   JeongmyeongHong
-     * desc          :   (SelectionSort)
+     * desc          :
+     * (SelectionSort)주어진 리스트 중에 최소값을 찾는다.
+     * 그 값을 맨 앞에 위치한 값과 교체한다.
+     * 맨 처음 위치를 뺀 나머지 리스트를 같은 방법으로 교체한다.
      */
     @Override
     public void selectionSort() {//3번
-        // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
+        int[] arr = creatArr();
+        for (int i = 0; i < arr.length; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[minIndex] > arr[j]) minIndex = j;
+                if (j == arr.length - 1) {
+                    int tmp = arr[i];
+                    arr[i] = arr[minIndex];
+                    arr[minIndex] = tmp;
+                }
+            }
+        }
+        System.out.println("정렬 후");
+        printArr(arr);
     }
 
     /*
      *  1인분
      * */
     @Override
-    public void quickSort(int[] arr, int start, int end) {//4번
-        // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
+    public void quickSort() {
+        int arr[] = creatArr();
+
     }
 
     @Override
-    public void mergeSort(int[] arr) {//5번
+    public void mergeSort() {//5번
         // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
         //int[] arr = creatArr();
-        System.out.println("최초 생성");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
+        int arr[] = creatArr();
+
         merge(arr, 0, arr.length - 1);
+
         System.out.println("소트 실행 후");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        printArr(arr);
     }
 
     public void merge(int[] arr, int left, int right) {
@@ -188,10 +203,6 @@ public class Feb10ServiceHJM implements Feb10Service {
                 }
             }
         }
-    }
-
-    public void oddmagicSquare(int num) {
-
     }
 
 

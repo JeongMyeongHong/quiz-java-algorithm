@@ -18,8 +18,8 @@ public interface Feb10Service {
     void insertionSort();
     void selectionSort();
     // 2번
-    void quickSort(int[] arr, int start, int end);
-    void mergeSort(int[] arr);
+    void quickSort();
+    void mergeSort();
     // 3번
     void magicSquare(int num);
     // 4번
