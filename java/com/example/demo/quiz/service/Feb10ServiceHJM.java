@@ -21,13 +21,19 @@ public class Feb10ServiceHJM implements Feb10Service {
         int[] arr = new int[10];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 100 + 1);
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    i--;
+                    break;
+                }
+            }
         }
         printArr(arr);
         System.out.println("정렬 전");
         return arr;
     }
 
-    public void printArr(int arr[]) {
+    public void printArr(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
@@ -111,20 +117,48 @@ public class Feb10ServiceHJM implements Feb10Service {
         printArr(arr);
     }
 
-    /*
-     *  1인분
-     * */
+    /**
+     * author        :   JeongmyeongHong
+     * desc          :
+     * (QuickSort)임의의 원소를 피벗으로 정한다.
+     * 피벗보다 작은 원소는 좌측으로(오름차순의 경우), 큰 원소는 우측으로 오도록 분할한다.
+     * (분할 후 피벗의 인덱스는 변하지 않는다.)
+     */
     @Override
     public void quickSort() {
-        int arr[] = creatArr();
+        int[] arr = creatArr();
 
+        quick(arr, 0, arr.length - 1);
+
+        printArr(arr);
     }
 
+    public void quick(int[] arr, int left, int right) {
+        if (left < right) {
+            int leftIndex = left - 1;
+            for (int j = left; j <= right - 1; j++) {
+                if (arr[j] <= arr[right]) {
+                    leftIndex++;
+                    int tmp = arr[j];
+                    arr[j] = arr[leftIndex];
+                    arr[leftIndex] = tmp;
+                }
+            }
+            int tmp = arr[leftIndex + 1];
+            arr[leftIndex + 1] = arr[right];
+            arr[right] = tmp;
+
+            int pivot = leftIndex + 1;
+
+            quick(arr, left, pivot - 1);
+            quick(arr, pivot + 1, right);
+        }
+    }
+
+
     @Override
-    public void mergeSort() {//5번
-        // 랜덤 정수 ( 1 ~ 100) 사이의 10 개 정수 정렬
-        //int[] arr = creatArr();
-        int arr[] = creatArr();
+    public void mergeSort() {
+        int[] arr = creatArr();
 
         merge(arr, 0, arr.length - 1);
 
@@ -132,25 +166,41 @@ public class Feb10ServiceHJM implements Feb10Service {
         printArr(arr);
     }
 
+
     public void merge(int[] arr, int left, int right) {
         int[] tmp = new int[arr.length];
         if (left < right) {
             int mid = (left + right) / 2;
+
+
+            //분할하는 과정.
             merge(arr, left, mid);
             merge(arr, mid + 1, right);
+
+
+            //left는 분할시의 인덱스,
+            // leftIndex는 병합시의 인덱스. leftIndex는 병합시 계속 ++해주므로 병합용 인덱스 할당.
+            // midIndex도 leftIndex와 같은 이유.
+            // right는 병합시 변하지 않기때문에 굳이 병합용 인덱스를 할당 해 줄 필요가 없다.
+
             int leftIndex = left;
             int midIndex = mid + 1;
-            int idx = leftIndex;
+            int idx = leftIndex;//tmp에서 사용할 인덱스
             while (leftIndex <= mid || midIndex <= right) {
-                if (midIndex > right || (leftIndex <= mid && arr[leftIndex] < arr[midIndex])) {
-                    tmp[idx++] = arr[leftIndex++];
-                } else {
-                    tmp[idx++] = arr[midIndex++];
+                if (midIndex > right || //우측이 먼저 끝난경우 or 좌측값이 더 작은경우
+                        (leftIndex <= mid && arr[leftIndex] < arr[midIndex])) {
+                    tmp[idx] = arr[leftIndex];
+                    leftIndex++;
+                } else {    //좌측이 먼저 끝난 경우 or 우측 값이 더 작은 경우.
+                    tmp[idx] = arr[midIndex];
+                    midIndex++;
                 }
+                idx++;
             }
             for (int i = left; i <= right; i++) {
                 arr[i] = tmp[i];
             }
+            printArr(arr);
         }
     }
 
