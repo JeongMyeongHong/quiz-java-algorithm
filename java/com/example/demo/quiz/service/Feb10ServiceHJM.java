@@ -258,8 +258,19 @@ public class Feb10ServiceHJM implements Feb10Service {
 
     @Override
     public void zigzag() {//7번
-
+        int num = (int) (Math.random() * 10 + 1);
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
+                if (i % 2 == 0) {
+                    System.out.print(i * num + j + "\t");
+                } else {
+                    System.out.print(i * num + num - j - 1 + "\t");
+                }
+            }
+            System.out.println();
+        }
     }
+
 
     @Override
     public void rectangleStarPrint() {//8번
